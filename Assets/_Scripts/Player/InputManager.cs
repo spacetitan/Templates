@@ -2,13 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerInput
+public class InputManager : MonoBehaviour
 {
+    public static InputManager Instance {get; private set;}
+
+    private void Awake()
+    {
+        if(Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
+
     //To Do
     //add saving/loading keycodes to player prefs
     private Dictionary<KeyBinding, KeyCode> keyBindings = new Dictionary<KeyBinding, KeyCode>();
-
-    void Awake(){}
 
     public float CameraXInput()
     {

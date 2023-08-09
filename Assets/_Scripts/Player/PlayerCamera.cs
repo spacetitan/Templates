@@ -45,9 +45,9 @@ public class PlayerCamera
     public void Rotation()
     {
         this._rotation = Quaternion.identity;
-        this._rotationH += this._player.playerInput.CameraXInput() * this.rotationSpeed;
+        this._rotationH += InputManager.Instance.CameraXInput() * this.rotationSpeed;
 
-        this._rotationV -= this._player.playerInput.CameraYInput();
+        this._rotationV -= InputManager.Instance.CameraYInput();
         this._rotationV = ClampCamera(this._rotationV);
 
         this._rotation = Quaternion.Euler(0, this._rotationH, 0);

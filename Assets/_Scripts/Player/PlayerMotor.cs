@@ -29,7 +29,7 @@ public class PlayerMotor
 
         Jumping();
 
-        this._direction = (this._player.playerInput.MovementXInput() * this._player.transform.right) + (this._player.playerInput.MovementZInput() * this._player.transform.forward);
+        this._direction = (InputManager.Instance.MovementXInput() * this._player.transform.right) + (InputManager.Instance.MovementZInput() * this._player.transform.forward);
         this._direction.Normalize();
 
         this._moveVelocity = this._direction * this._speed;
@@ -51,7 +51,7 @@ public class PlayerMotor
     {
         if(this._player.isGrounded)
         {
-            if(this._player.playerInput.JumpInput())
+            if(InputManager.Instance.JumpInput())
             {
                 this._yVelocity = this._jumpForce;
             }

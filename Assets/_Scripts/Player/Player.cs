@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public PlayerInput playerInput{get; private set;} = null;
     public PlayerMotor playerMotor{get; private set;} = null;
     public PlayerCamera playerCamera{get; private set;} = null;
 
@@ -36,7 +35,6 @@ public class Player : MonoBehaviour
 
         this.groundLayer = LayerMask.GetMask("Environment"); //Add layer
 
-        this.playerInput = new PlayerInput();
         this.playerMotor = new PlayerMotor(this);
         this.playerCamera = new PlayerCamera(this);
     }
