@@ -49,4 +49,9 @@ public class InputManager : MonoBehaviour
     {
         return Input.GetButtonDown("Interact"); //add to Input Manager
     }
+
+    public bool InteractInputHold()
+    {
+        return Input.GetButton("Interact"); //add to Input Manager
+    }
 }
