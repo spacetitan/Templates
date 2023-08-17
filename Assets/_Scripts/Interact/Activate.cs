@@ -26,14 +26,23 @@ public class Activate : MonoBehaviour, IInteractable
     {
         if(this._isInteractable)
         {
-            if(this._interactTimer < this._time)
+            if(this.interactTime > 0.0f)
             {
-                this._interactTimer += Time.smoothDeltaTime;
-                return false;
+                if(this._interactTimer < this._time)
+                {
+                    this._interactTimer += Time.smoothDeltaTime;
+                    return false;
+                }
+                else
+                {
+                    this._interactTimer = 0.0f;
+                    Debug.Log("Activating");
+                    this._isInteractable = false;
+                    return true;
+                }
             }
             else
             {
-                this._interactTimer = 0.0f;
                 Debug.Log("Activating");
                 this._isInteractable = false;
                 return true;
